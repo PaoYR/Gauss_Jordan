@@ -170,10 +170,7 @@ public class Suma extends javax.swing.JFrame {
         try{
             n= Integer.parseInt(txtNumero.getText());
            if(n>10){//La matriz solo puede tener una dimension de 10x10
-             JOptionPane.showMessageDialog(rootPane, "El número ingresado excede la capacidad de la tabla");
-             Menu m= new Menu();
-             m.setVisible(true);
-             this.setVisible(false);}
+             JOptionPane.showMessageDialog(rootPane, "El número ingresado excede la capacidad de la tabla");}
            else{
                 float [][] matriz= new float[10][10];//creo una matriz temporal
                 matriz= this.GenerarMatriz1(matriz, n);//Genero la matriz
@@ -187,7 +184,7 @@ public class Suma extends javax.swing.JFrame {
            }
         }catch(Exception e){
             //Para evitar las letras 
-            JOptionPane.showMessageDialog(rootPane, "Solo ingrese números");    
+            JOptionPane.showMessageDialog(rootPane, "Solo ingrese números enteros positivos");    
         }           
     }//GEN-LAST:event_btnGenerarActionPerformed
 
@@ -200,17 +197,33 @@ public class Suma extends javax.swing.JFrame {
        //Así obtengo los datos de las  tablas
         TableModel tableModel = tblMatriz.getModel();
         TableModel model2= tblMatriz2.getModel();
-        int n= Integer.parseInt(txtNumero.getText());
-        for(int i=0; i<n; i++) {
-            for(int j=0; j<n; j++){   
-                    float a,b,suma;
-                    a= Float.parseFloat(tableModel.getValueAt(i,j).toString());//hago el casting de string a float para manipular los datos
-                    b= Float.parseFloat(model2.getValueAt(i,j).toString());
-                    suma= a+b;
-                    tblMatriz3.setValueAt(suma, i,j);//Los muestro en la tabla 3 
-            }
+        
+        try{
+            
+            if(tblMatriz.isEditing() || tblMatriz2.isEditing()){
+            tblMatriz.getCellEditor().stopCellEditing();
+            tblMatriz2.getCellEditor().stopCellEditing();
         }
-        JOptionPane.showMessageDialog(rootPane, "Si desea calcular otra matriz debe de volver a introducir\nlas dimensiones de dicha matriz");
+            int n= Integer.parseInt(txtNumero.getText());
+                for(int i=0; i<n; i++) {
+                    for(int j=0; j<n; j++){   
+                        float a,b,suma;
+                        if("".equals(tblMatriz2.getValueAt(i, j)) || "".equals(tblMatriz.getValueAt(i,j))) {
+                        throw new Exception("");
+                        }
+                        a= Float.parseFloat(tableModel.getValueAt(i,j).toString());//hago el casting de string a float para manipular los datos
+                        b= Float.parseFloat(model2.getValueAt(i,j).toString());
+                        suma= a+b;
+                         tblMatriz3.setValueAt(suma, i,j);//Los muestro en la tabla 3 
+                    }
+                }
+            JOptionPane.showMessageDialog(rootPane, "Si desea calcular otra matriz debe de volver a introducir\nlas dimensiones de dicha matriz");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "El valor que ingreso no es valido");
+            
+        }
+             
+        
     }//GEN-LAST:event_btnCalcularMouseClicked
 
     /**

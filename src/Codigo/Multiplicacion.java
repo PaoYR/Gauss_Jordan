@@ -1,7 +1,10 @@
 package Codigo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class Multiplicacion extends javax.swing.JFrame {
 
@@ -19,7 +22,6 @@ public class Multiplicacion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMatriz1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblMatriz2 = new javax.swing.JTable();
         txtDos = new javax.swing.JLabel();
@@ -31,8 +33,12 @@ public class Multiplicacion extends javax.swing.JFrame {
         txtFilas1 = new javax.swing.JTextField();
         txtFilas2 = new javax.swing.JTextField();
         btnGenerar1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblMatriz3 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        btnGenerar2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,7 +58,7 @@ public class Multiplicacion extends javax.swing.JFrame {
                 btnMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 530, -1, -1));
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 520, -1, -1));
 
         tblMatriz1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,10 +73,7 @@ public class Multiplicacion extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 430, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo 1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, 240, 80));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo 1.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 240, 500));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, 340, 80));
 
         tblMatriz2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,6 +127,7 @@ public class Multiplicacion extends javax.swing.JFrame {
         });
         getContentPane().add(txtFilas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 130, 40));
 
+        btnGenerar1.setFont(new java.awt.Font("Swis721 Hv BT", 0, 14)); // NOI18N
         btnGenerar1.setText("Generar");
         btnGenerar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,13 +139,53 @@ public class Multiplicacion extends javax.swing.JFrame {
                 btnGenerar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGenerar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
+        getContentPane().add(btnGenerar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 100, 50));
+
+        btnCalcular.setFont(new java.awt.Font("Swis721 Hv BT", 0, 14)); // NOI18N
+        btnCalcular.setText("Calcular");
+        btnCalcular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCalcularMouseClicked(evt);
+            }
+        });
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 100, -1));
+
+        tblMatriz3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tblMatriz3);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 450, 210));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo 1.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 340, 500));
+
+        btnGenerar2.setFont(new java.awt.Font("Swis721 Hv BT", 0, 14)); // NOI18N
+        btnGenerar2.setText("Generar");
+        btnGenerar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGenerar2MouseClicked(evt);
+            }
+        });
+        btnGenerar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerar2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGenerar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 100, 50));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo 1.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 850, 90));
-
-        btnCalcular.setText("Calcular");
-        getContentPane().add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo 1.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 490));
@@ -178,26 +222,101 @@ public class Multiplicacion extends javax.swing.JFrame {
 
     private void btnGenerar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerar1MouseClicked
         // TODO add your handling code here:
+     try{
         int fila1, columna1;
         fila1= Integer.parseInt(txtFilas1.getText());
         columna1= Integer.parseInt(txtColumnas1.getText());
-        try{
-            if(fila1>10 || columna1>10){//La matriz solo puede tener una dimension de 10x10
-             JOptionPane.showMessageDialog(rootPane, "El número ingresado excede la capacidad de la tabla");
-             Menu m= new Menu();
-             m.setVisible(true);
-             this.setVisible(false);}
-           else{float [][] matriz= new float[10][10];//creo una matriz temporal
-                matriz= this.Generar1(matriz, fila1, columna1);//Genero la matriz
-                this.Generar1(matriz, fila1,columna1);//muestro la matriz
+        if("".equals(txtFilas1.getText()) || "".equals(txtColumnas1.getText())) {
+            //Falta implementar bien esta parte
+            throw new Exception("");
+        }
+                if(fila1>10 || columna1>10 ){//La matriz solo puede tener una dimension de 10x10
+                    JOptionPane.showMessageDialog(rootPane, "El número ingresado excede la capacidad de la tabla");}
+                else{float [][] matriz= new float[10][10];//creo una matriz temporal
+                     matriz= this.Generar1(matriz, fila1, columna1);//Genero la matriz
+                     this.Generar1(matriz, fila1,columna1);//muestro la matriz
+                     }
+                }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Solo ingrese números Enteros");
+            
+        }
+    }//GEN-LAST:event_btnGenerar1MouseClicked
+
+    private void btnCalcularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMouseClicked
+        // TODO add your handling code here:
+        TableModel modelo1 = tblMatriz1.getModel();
+        TableModel model2= tblMatriz2.getModel();
+        int fila_Res, colum_Res,col, fil;
+        float [][] Matriz= new float [10][10];
+        col= Integer.parseInt(txtColumnas1.getText());
+        fil= Integer.parseInt(txtFilas2.getText());        
+    try{
+        if("".equals(txtFilas1.getText()) || "".equals(txtColumnas1.getText())) {
+            //Falta implementar bien esta parte
+            throw new Exception("");
+        }
+        if( col == fil){
+                fila_Res= Integer.parseInt(txtFilas1.getText());
+                colum_Res= Integer.parseInt(txtColumnas2.getText());
+                Matriz= this.GenerarMatriz3(Matriz, fila_Res, colum_Res);//Genero la matriz
+                this.GenerarMatriz3(Matriz, fila_Res, colum_Res);//muestro la matriz 
+                    for(int i=0; i<fila_Res; i++) {
+                        for(int j=0; j<colum_Res; j++){   
+                        float multi=0;
+                        for(int k=0; k<col; k++){
+                           multi +=  Float.parseFloat(modelo1.getValueAt(i,k).toString())*Float.parseFloat(model2.getValueAt(k,j).toString());
+                          JOptionPane.showMessageDialog(rootPane,multi);
+                        }
+                         tblMatriz3.setValueAt(multi, i,j);//Los muestro en la tabla 3 
+                        }
+                    }
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane,"Estas matrices no se pueden multiplicar");
+                Menu m= new Menu();
+                m.setVisible(true);
+                this.setVisible(false);
             }
         }
-        catch(Exception e){
-            
-            JOptionPane.showMessageDialog(rootPane, "Solo ingrese números");
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(rootPane, "El valor es invalido");
         }
         
-    }//GEN-LAST:event_btnGenerar1MouseClicked
+            
+          
+    }//GEN-LAST:event_btnCalcularMouseClicked
+
+    private void btnGenerar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerar2MouseClicked
+        // TODO add your handling code here:
+    try{
+        int fila2, columna2;
+        fila2= Integer.parseInt(txtFilas2.getText());
+        columna2= Integer.parseInt(txtColumnas2.getText());
+        if(txtFilas2.getText()== null || txtColumnas2.getText()==null) {
+            throw new Exception();
+        }
+                if(fila2>10 || columna2>10 ){//La matriz solo puede tener una dimension de 10x10
+                    JOptionPane.showMessageDialog(rootPane, "El número ingresado excede la capacidad de la tabla");}
+                else{//creo una matriz temporal
+                     float [][] matriz2= new float[10][10];
+                     matriz2=this.Generar2(matriz2, fila2, columna2);
+                     this.Generar2(matriz2, fila2, columna2);
+                     }
+                }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Solo ingrese números Enteros");
+            
+        }  
+    }//GEN-LAST:event_btnGenerar2MouseClicked
+
+    private void btnGenerar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerar2ActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,7 +354,7 @@ public class Multiplicacion extends javax.swing.JFrame {
     }
     
     public float [][] Generar1 (float matriz1[][], int fila, int columna){
-    DefaultTableModel modelo1 = (DefaultTableModel) tblMatriz1.getModel();//Creo el objeto
+    DefaultTableModel modelo1 = (DefaultTableModel) tblMatriz1.getModel();//Obtengo el modelo de la tabla
     modelo1.setColumnCount(columna);//Adato las columnas
     modelo1.setRowCount(fila);//Adato las filas
     for(int filas=0;filas<fila;filas++){
@@ -246,29 +365,43 @@ public class Multiplicacion extends javax.swing.JFrame {
     return matriz1;
 }
     public float [][] Generar2 (float matriz[][], int fila, int columna){
-    DefaultTableModel modelo = (DefaultTableModel) tblMatriz2.getModel();//Creo el objeto
+    DefaultTableModel modelo = (DefaultTableModel) tblMatriz2.getModel();//Obtengo el modelo de la tabla  
     modelo.setColumnCount(columna);//Adato las columnas
     modelo.setRowCount(fila);//Adato las filas
     for(int filas=0;filas<fila;filas++){
         for(int columnas=0;columnas<columna;columnas++){
-            tblMatriz1.setValueAt(matriz[filas][columnas], filas, columnas);//creo los espacios necesarios
+            tblMatriz2.setValueAt(matriz[filas][columnas], filas, columnas);//creo los espacios necesarios
         }
     }    
     return matriz;
+}
+    public float[][] GenerarMatriz3(float matriz3[][], int fila, int colu){
+    DefaultTableModel model3 = (DefaultTableModel) tblMatriz3.getModel();//Creo el objeto
+    model3.setColumnCount(colu);//Adato las columnas
+    model3.setRowCount(fila);//Adato las filas
+    for(int filas=0;filas<fila;filas++){
+        for(int columnas=0;columnas<colu;columnas++){
+            tblMatriz3.setValueAt(matriz3[filas][columnas], filas, columnas);//creo los espacios necesarios
+        }
+    }    
+    return matriz3;
 }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnGenerar1;
+    private javax.swing.JButton btnGenerar2;
     private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblMatriz1;
     private javax.swing.JTable tblMatriz2;
+    private javax.swing.JTable tblMatriz3;
     private javax.swing.JTextField txtColumnas1;
     private javax.swing.JTextField txtColumnas2;
     private javax.swing.JLabel txtDos;
